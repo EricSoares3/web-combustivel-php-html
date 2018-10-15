@@ -8,12 +8,17 @@ if ($_POST) {
         if( $distancia > 0 && $autonomia > 0) {
         
             $valorGasolina = 4.80;
-            $valorDiesel = 3.80;
-            $valorAlcool = 3.90;
+            $valorDiesel = 3.90;
+            $valorAlcool = 3.80;
 
             $calculoGasolina = ( $distancia / $autonomia ) * $valorGasolina;
+            $calculoGasolina = number_format($calculoGasolina, 2, ',', '.');
+
             $calculoDiesel = ( $distancia / $autonomia ) * $valorDiesel;
+            $calculoDiesel = number_format($calculoDiesel, 2, ',', '.');
+
             $calculoAlcool = ( $distancia / $autonomia ) * $valorAlcool;
+            $calculoAlcool = number_format($calculoAlcool, 2, ',', '.');
 
             echo "<p> O valor do consume de Gasolina é R$ " .$calculoGasolina ."</p>";
             echo "<p> O valor do consume de Alcool é R$ " .$calculoAlcool ."</p>";
