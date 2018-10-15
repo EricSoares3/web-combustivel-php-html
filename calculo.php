@@ -5,20 +5,23 @@ if ($_POST) {
     
     if( is_numeric($distancia) && is_numeric($autonomia)) {
 
-        $valorGasolina = 4.80;
-        $valorDiesel = 3.80;
-        $valorAlcool = 3.90;
+        if( $distancia > 0 && $autonomia > 0) {
+        
+            $valorGasolina = 4.80;
+            $valorDiesel = 3.80;
+            $valorAlcool = 3.90;
 
-        $calculoGasolina = ( $distancia / $autonomia ) * $valorGasolina;
-        $calculoDiesel = ( $distancia / $autonomia ) * $valorDiesel;
-        $calculoAlcool = ( $distancia / $autonomia ) * $valorAlcool;
+            $calculoGasolina = ( $distancia / $autonomia ) * $valorGasolina;
+            $calculoDiesel = ( $distancia / $autonomia ) * $valorDiesel;
+            $calculoAlcool = ( $distancia / $autonomia ) * $valorAlcool;
 
-        echo "<p> O valor do consume de Gasolina é R$ " .$calculoGasolina ."</p>";
-        echo "<p> O valor do consume de Alcool é R$ " .$calculoAlcool ."</p>";
-        echo "<p> O valor do consume de Diesel é R$ " .$calculoDiesel ."</p>";
+            echo "<p> O valor do consume de Gasolina é R$ " .$calculoGasolina ."</p>";
+            echo "<p> O valor do consume de Alcool é R$ " .$calculoAlcool ."</p>";
+            echo "<p> O valor do consume de Diesel é R$ " .$calculoDiesel ."</p>";
 
-        echo "<p>Valor da distâcia é: " .$distancia  ."</p>";
-        echo "<p>Valor da autonomia é: " .$autonomia  ."</p>";
+        }else {
+            echo "O valor da distância e da autonomia devem ser maior que Zero! ";
+        }
     }else {
         echo "O valor digitado não é númerico.";
     }
