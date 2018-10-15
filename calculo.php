@@ -22,19 +22,30 @@ if ($_POST) {
             $calculoAlcool = ( $distancia / $autonomia ) * $valorAlcool;
             $calculoAlcool = number_format($calculoAlcool, 2, ',', '.');
 
-            $mensagem.= "<p> O valor do consume de Gasolina é R$ " .$calculoGasolina ."</p>";
-            $mensagem.= "<p> O valor do consume de Alcool é R$ " .$calculoAlcool ."</p>";
-            $mensagem.= "<p> O valor do consume de Diesel é R$ " .$calculoDiesel ."</p>";
+            $mensagem.="<div class='sucesso'>";
+            $mensagem.="O valor total gasto será de: ";
+            $mensagem.="<ul>";
+            $mensagem.="<li><b>Gasolina: R$ </b>".$calculoGasolina."</li>";
+            $mensagem.="<li><b>Alcool: R$ </b>".$calculoAlcool."</li>";
+            $mensagem.="<li><b>Diesel: R$ </b>".$calculoDiesel."</li>";
+            $mensagem.="</ul>";
+            $mensagem.="</div>";
 
         }else {
-            echo "O valor da distância e da autonomia devem ser maior que Zero! ";
+            $mensagem.="<div class='erro'>";
+            $mensagem.= "O valor da distância e da autonomia devem ser maior que Zero! ";
+            $mensagem.="</div>";
         }
     }else {
-        echo "O valor digitado não é númerico.";
+        $mensagem.="<div class='erro'>";
+        $mensagem.= "O valor digitado não é númerico.";
+        $mensagem.="</div>";        
     }
 } else {
-    echo "Nenhum dado recebido do Fórmulario.";
-}
+    $mensagem.="<div class='erro'>";
+    $mensagem.= "Nenhum dado recebido do Fórmulario.";
+    $mensagem.="</div>";
+}   
 ?>
 
 <!DOCTYPE html>
